@@ -22,6 +22,8 @@ var EMAILS_TAB    = 'Emails';
 var WAITLIST_HEAD = ['Timestamp', 'Name', 'Email', 'User type', 'Source'];
 var EMAILS_HEAD   = ['Active', 'When', 'Subject', 'Body', 'Button text', 'Button URL', 'Sent on'];
 var SEND_HOUR     = 9;                               // daily send time (local)
+var LOGO_URL      = 'https://cdn.jsdelivr.net/gh/teamtogro/togro-site-v3@main/images/logo.png';
+var SITE_URL      = 'https://togro.co';
 
 /* ───────────────────────── sheet plumbing ───────────────────────── */
 
@@ -232,26 +234,53 @@ function daysToLaunch_() {
 function startOfDay_(d) { return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
 
 function htmlEmail_(bodyText, btnText, btnUrl) {
+  var FONT = "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif";
   var body = String(bodyText)
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
     .replace(/\n/g, '<br>');
+
   var button = '';
   if (btnUrl && String(btnUrl).trim()) {
-    button = '<div style="margin-top:24px"><a href="' + String(btnUrl).trim() +
-      '" style="display:inline-block;background:#C8D91A;color:#10140A;font-weight:700;text-decoration:none;padding:13px 26px;border-radius:999px">' +
-      (String(btnText || 'Open').trim()) + '</a></div>';
+    button =
+      '<table role="presentation" cellpadding="0" cellspacing="0" style="margin:26px 0 4px"><tr>' +
+        '<td style="border-radius:999px;background:#C8D91A">' +
+          '<a href="' + String(btnUrl).trim() + '" style="display:inline-block;padding:14px 30px;font-family:' + FONT +
+          ';font-size:15px;font-weight:700;color:#10140A;text-decoration:none;border-radius:999px">' +
+          (String(btnText || 'Open').trim()) + ' &nbsp;&rarr;</a>' +
+        '</td>' +
+      '</tr></table>';
   }
+
   return '' +
-    '<div style="font-family:Arial,Helvetica,sans-serif;background:#EAEFF4;padding:24px">' +
-      '<div style="max-width:560px;margin:0 auto;background:#ffffff;border-radius:18px;overflow:hidden;border:1px solid #DCE3EA">' +
-        '<div style="background:#111827;padding:22px 28px">' +
-          '<span style="color:#C8D91A;font-weight:800;font-size:20px;letter-spacing:-.5px">Togro</span>' +
-        '</div>' +
-        '<div style="padding:30px 28px;color:#0F172A;font-size:15px;line-height:1.65">' + body + button + '</div>' +
-        '<div style="padding:18px 28px;color:#64748B;font-size:12px;border-top:1px solid #EEF2F6;line-height:1.5">' +
-          'Togro &middot; Real-time countryside intelligence &middot; team@togro.co<br>' +
-          "You're receiving this because you joined the Togro waitlist." +
-        '</div>' +
-      '</div>' +
-    '</div>';
+'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#EAEFF4;margin:0;padding:0">' +
+ '<tr><td align="center" style="padding:28px 12px">' +
+  '<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;background:#ffffff;border:1px solid #DCE3EA;border-radius:18px;overflow:hidden">' +
+    // header (navy) with logo + wordmark + tagline
+    '<tr><td style="background:#111827;padding:22px 28px">' +
+      '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>' +
+        '<td style="vertical-align:middle">' +
+          '<img src="' + LOGO_URL + '" width="30" height="30" alt="Togro" style="vertical-align:middle;border:0;display:inline-block">' +
+          '<span style="font-family:' + FONT + ';color:#C8D91A;font-weight:800;font-size:21px;letter-spacing:-.5px;vertical-align:middle;padding-left:9px">Togro</span>' +
+        '</td>' +
+        '<td align="right" style="vertical-align:middle">' +
+          '<span style="font-family:' + FONT + ';color:#7F8BA1;font-size:10px;font-weight:700;letter-spacing:2px">COUNTRYSIDE&nbsp;INTELLIGENCE</span>' +
+        '</td>' +
+      '</tr></table>' +
+    '</td></tr>' +
+    // lime accent bar
+    '<tr><td style="height:4px;line-height:4px;font-size:0;background:#C8D91A">&nbsp;</td></tr>' +
+    // body
+    '<tr><td style="padding:32px 30px 28px;font-family:' + FONT + ';color:#0F172A;font-size:15px;line-height:1.65">' +
+      body + button +
+    '</td></tr>' +
+    // footer
+    '<tr><td style="padding:20px 30px;background:#F8FAFC;border-top:1px solid #EEF2F6;font-family:' + FONT + ';color:#64748B;font-size:12px;line-height:1.6">' +
+      '<span style="color:#0F172A;font-weight:700">Togro</span> &middot; Real-time countryside intelligence<br>' +
+      '<a href="' + SITE_URL + '" style="color:#0B7E74;text-decoration:none">togro.co</a> &middot; ' +
+      '<a href="mailto:team@togro.co" style="color:#0B7E74;text-decoration:none">team@togro.co</a><br>' +
+      '<span style="color:#94A3B8">You\'re receiving this because you joined the Togro waitlist.</span>' +
+    '</td></tr>' +
+  '</table>' +
+ '</td></tr>' +
+'</table>';
 }
