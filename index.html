@@ -613,8 +613,8 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
       <a href="#communities">Communities</a>
       <a href="#how">How it works</a>
       <a href="#rewards">Rewards</a>
-      <a href="#partners">Partners</a>
-      <a href="#team">Team</a>
+      <a href="#partners">Pricing</a>
+      <a href="#about">About</a>
     </nav>
     <div class="nav-actions">
       <a href="#cta" class="btn btn-lime btn-lg wl-cta">Join the waitlist</a>
@@ -623,7 +623,7 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
   </div>
 </header>
 <nav class="mobile-menu glass" id="mobileMenu">
-  <a href="#communities">Communities</a><a href="#how">How it works</a><a href="#rewards">Rewards</a><a href="#partners">Partners</a><a href="#team">Team</a>
+  <a href="#communities">Communities</a><a href="#how">How it works</a><a href="#rewards">Rewards</a><a href="#partners">Pricing</a><a href="#about">About</a>
   <a href="#cta" class="btn btn-lime btn-md wl-cta">Join the waitlist</a>
 </nav>
 <span id="top"></span>
@@ -642,14 +642,10 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
         <div class="hero-cta">
           <a href="#cta" class="btn btn-lime btn-lg wl-cta">Join the waitlist
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#communities" class="btn btn-ghost btn-lg">I run a venue, farm or brand</a>
         </div>
         <div class="hero-aud">
-          <span class="lbl">I'm a</span>
-          <button class="aud-chip" data-aud="walkers">Walker</button>
-          <button class="aud-chip" data-aud="venues">Venue</button>
-          <button class="aud-chip" data-aud="brands">Brand</button>
-          <button class="aud-chip" data-aud="community">Community group</button>
-          <button class="aud-chip" data-aud="tourism">Council</button>
+          <span class="lbl">Walkers get the app free · partners are onboarded before launch</span>
         </div>
         <div class="hero-meta">
           <div class="m"><b class="teal" data-count="100" data-suffix="%">0</b><span>of the UK mapped</span></div>
@@ -1019,11 +1015,14 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
 </section>
 
 <!-- ════════════════ TEAM ════════════════ -->
-<section class="team" id="team">
+<section class="team about" id="about">
   <div class="wrap">
-    <span class="eyebrow lime">The people building it</span>
-    <h2 class="section-title reveal">A team that knows the countryside.</h2>
-    <p class="section-sub reveal">Founders and builders making the rural trust network real, backed by a marketing and partnerships team out in the field.</p>
+    <span class="eyebrow lime">About Togro</span>
+    <h2 class="section-title reveal">Built for the countryside,<br>by the people who love it.</h2>
+    <p class="section-sub reveal">Togro exists to make the countryside safer, fairer and easier to enjoy: a living map kept honest by the people who walk it and work it. Walkers always come first: the app is free, and contributing is rewarded, never charged. Farmers, venues, councils and brands join to support that network, not to mine it. Walkers stay anonymous, always.</p>
+    <span class="eyebrow lime" style="margin-top:48px;display:inline-block">The team</span>
+    <h3 class="section-title reveal" style="font-size:clamp(24px,3vw,34px);margin:10px 0 8px">A team that knows the countryside.</h3>
+    <p class="section-sub reveal" style="margin-bottom:30px">Founders and builders making the rural trust network real, backed by a marketing and partnerships team out in the field.</p>
     <div class="team-deck reveal">
       <div class="team-cards" id="teamCards">
         <div class="tc on" data-t="0"><div class="tc-photo"><img loading="lazy" decoding="async" src="images/team-georgina.jpg" alt="Georgina Bostock" style="object-position:57% 60%"></div><div class="tc-body"><div class="tc-num"><b>01</b> / 05</div><h3>Georgina Bostock</h3><span class="tc-role">Founder</span><p>Founded Togro to build digital infrastructure for the countryside.</p></div></div>
@@ -1070,6 +1069,7 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
             <option>Farmer / landowner</option>
             <option>Venue / business</option>
             <option>Brand</option>
+            <option>Community group</option>
             <option>Council / tourism</option>
           </select>
           <input type="text" id="pName" placeholder="Your name" required autocomplete="name">
@@ -1224,6 +1224,16 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
   }
   document.querySelectorAll('.pcat').forEach(function(t){t.addEventListener('click',function(){setCat(t.getAttribute('data-cat'),false);});});
   document.querySelectorAll('.aud-chip').forEach(function(c){c.addEventListener('click',function(){setCat(c.getAttribute('data-aud'),true);});});
+  // ── partner-form preselect: any [data-partner] link pre-fills the enquiry type ──
+  function preselectPartner(v){
+    var sel=document.getElementById('pType'); if(!sel||!v) return;
+    for(var i=0;i<sel.options.length;i++){
+      if(sel.options[i].value===v||sel.options[i].text===v){ sel.selectedIndex=i; sel.style.borderColor=''; break; }
+    }
+  }
+  document.querySelectorAll('[data-partner]').forEach(function(a){
+    a.addEventListener('click',function(){ preselectPartner(a.getAttribute('data-partner')); });
+  });
   // reveal + counters
   function fmt(n){return n>=1000?n.toLocaleString('en-GB'):n;}
   function countUp(el){var target=+el.getAttribute('data-count'),suf=el.getAttribute('data-suffix')||'',start=null;
