@@ -286,7 +286,8 @@ function htmlEmail_(bodyText, btnText, btnUrl) {
       '<span style="color:#0F172A;font-weight:700">Togro</span> &middot; Real-time countryside intelligence<br>' +
       '<a href="' + SITE_URL + '" style="color:#0B7E74;text-decoration:none">togro.co</a> &middot; ' +
       '<a href="mailto:team@togro.co" style="color:#0B7E74;text-decoration:none">team@togro.co</a><br>' +
-      '<span style="color:#94A3B8">You\'re receiving this because you joined the Togro waitlist.</span>' +
+      '<span style="color:#94A3B8">You\'re receiving this because you joined the Togro waitlist. ' +
+        '<a href="mailto:team@togro.co?subject=Unsubscribe" style="color:#94A3B8;text-decoration:underline">Unsubscribe</a>.</span>' +
     '</td></tr>' +
   '</table>' +
  '</td></tr>' +
