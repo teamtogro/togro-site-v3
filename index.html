@@ -505,6 +505,31 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
   align-items:center;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--text-3);font-weight:500}
 .foot-bottom .mono{color:var(--text-2)}
 
+/* ════════════════ PARTNER SIGN-UP ════════════════ */
+.psignup{padding:24px 0 6px}
+.psignup-card{padding:clamp(28px,4vw,52px);display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,46px);align-items:center}
+.psignup-card .pl h2{font-size:clamp(24px,3.2vw,36px);letter-spacing:-.03em;margin-top:14px}
+.psignup-card .pl h2 em{font-style:normal;color:var(--lime-lo)}
+.psignup-card .pl p{font-size:15px;color:var(--text-2);line-height:1.6;margin-top:12px;font-weight:500;max-width:430px}
+.psignup-card .pl ul{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:11px}
+.psignup-card .pl li{display:flex;gap:11px;align-items:center;font-size:14px;font-weight:500;color:var(--text-1)}
+.psignup-card .pl li .pi{width:24px;height:24px;border-radius:7px;flex:none;display:grid;place-items:center;color:var(--teal-ink);background:color-mix(in srgb,var(--teal) 14%,transparent)}
+.pform{display:flex;flex-direction:column;gap:11px}
+.pform input,.pform select,.pform textarea{width:100%;padding:14px 16px;border-radius:13px;border:1px solid var(--line-2);
+  background:var(--canvas-2);color:var(--text-1);font-family:inherit;font-size:15px;font-weight:500;transition:border-color .2s,box-shadow .2s}
+.pform textarea{resize:vertical;min-height:58px;line-height:1.5}
+.pform input::placeholder,.pform textarea::placeholder{color:var(--text-4)}
+.pform input:focus,.pform select:focus,.pform textarea:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px var(--lime-glow)}
+.pform select{appearance:none;-webkit-appearance:none;cursor:pointer;color:var(--text-1);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center}
+.pform .btn{margin-top:5px}
+.pform-success{display:none;align-items:flex-start;gap:11px;font-size:15px;font-weight:600;color:var(--text-1);line-height:1.5;
+  padding:18px 20px;border-radius:14px;background:color-mix(in srgb,var(--lime) 10%,transparent);border:1px solid color-mix(in srgb,var(--lime) 32%,transparent)}
+.pform-success.on{display:flex}
+.pform-success .ic{width:26px;height:26px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--lime);color:var(--ink-on-lime)}
+@media(max-width:780px){.psignup-card{grid-template-columns:1fr}}
+
 /* ════════════════ RESPONSIVE ════════════════ */
 @media(max-width:980px){
   .hero-grid,.diff-grid,.rw-grid,.comm-inner{grid-template-columns:1fr;gap:32px}
@@ -735,7 +760,7 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
               <li><span class="pi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span>Incident audit logs &amp; right-of-way clarity</li>
               <li><span class="pi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M9 18l-2 4 5-3 5 3-2-4"/></svg></span>Rural-stewardship recognition, not invoices</li>
             </ul>
-            <div class="comm-cta"><a href="#partners" class="btn btn-teal btn-md">Onboard your land</a></div>
+            <div class="comm-cta"><a href="#partner-signup" data-partner="Farmer / landowner" class="btn btn-teal btn-md">Onboard your land</a></div>
           </div>
           <div class="comm-mock">
             <div class="mh"><div class="mic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 9v11h16V9zM9 20v-6h6v6"/></svg></div><div><b>Manor Farm · land status</b><span class="mono">3 permissive paths</span></div></div>
@@ -759,7 +784,7 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
               <li><span class="pi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 14l4-4 3 3 5-6"/></svg></span>Near-real-time footfall dashboard</li>
               <li><span class="pi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A1.5 1.5 0 0 0 8 3.5V4H6a2 2 0 0 0-2 2v3a3 3 0 0 0 3 3M8 4h8M12 17v3M8 22h8"/></svg></span>AI sets the right reward in one tap</li>
             </ul>
-            <div class="comm-cta"><a href="#partners" class="btn btn-teal btn-md">List your venue</a></div>
+            <div class="comm-cta"><a href="#partner-signup" data-partner="Venue / business" class="btn btn-teal btn-md">List your venue</a></div>
           </div>
           <div class="comm-mock">
             <div class="mh"><div class="mic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg></div><div><b>The Stone Arms · dashboard</b><span class="mono">Tier A · per-redemption</span></div></div>
@@ -783,7 +808,7 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
               <li><span class="pi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>Seasonal destination campaigns with rewards</li>
               <li><span class="pi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 7v6c0 5 3.5 7.5 8 9 4.5-1.5 8-4 8-9V7Z"/></svg></span>Anonymised, aggregate data, never walker PII</li>
             </ul>
-            <div class="comm-cta"><a href="#partners" class="btn btn-teal btn-md">Talk to us</a></div>
+            <div class="comm-cta"><a href="#partner-signup" data-partner="Council / tourism" class="btn btn-teal btn-md">Talk to us</a></div>
           </div>
           <div class="comm-mock">
             <div class="mh"><div class="mic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21V9l6-4 6 4v12M10 21v-6h4v6"/></svg></div><div><b>County RoW · overview</b><span class="mono">North York Moors</span></div></div>
@@ -950,7 +975,7 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
         <div class="deal-grid">
           <div class="deal solid"><div class="dh"><h4>Standard campaign</h4><span class="tag teal">4–12 weeks</span></div><div class="price teal">From £2k<span class="per"> / campaign</span></div><p class="ddesc">Brand-funded reward campaign across one region or venue type, with a performance report at close.</p><ul><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Region / venue / weather triggers</li><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Or a hybrid of setup + per-redemption</li><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Attribution &amp; satisfaction reporting</li></ul></div>
           <div class="deal solid"><div class="dh"><h4>Cost-per-redemption</h4><span class="tag teal">Performance</span></div><div class="price teal">From £1.50<span class="per"> / redemption</span></div><p class="ddesc">Pay only for verified redemptions of your funded reward. Clean footfall, healthy margin.</p><ul><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Anti-abuse: GPS, dwell &amp; velocity checks</li><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Venue kept whole on every redemption</li><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Sampling: product in-kind + a coordination fee</li></ul></div>
-          <div class="deal solid feature"><div class="dh"><h4>Founding Brand Partner</h4><span class="tag lime">Up to 6</span></div><div class="price lime">Let's talk</div><p class="ddesc">12-month flagship: sector exclusivity in launch regions, co-branded route series &amp; first-look on new formats.</p><ul><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Launch the capability with us</li><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Named, co-branded route series</li><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Case-study rights both ways</li></ul><a class="deal-cta" href="mailto:team@togro.co?subject=Founding%20Brand%20Partner%20enquiry">Talk to partnerships<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          <div class="deal solid feature"><div class="dh"><h4>Founding Brand Partner</h4><span class="tag lime">Up to 6</span></div><div class="price lime">Let's talk</div><p class="ddesc">12-month flagship: sector exclusivity in launch regions, co-branded route series &amp; first-look on new formats.</p><ul><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Launch the capability with us</li><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Named, co-branded route series</li><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Case-study rights both ways</li></ul><a class="deal-cta" href="#partner-signup" data-partner="Brand">Become a founding partner<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
       </div>
       <!-- COMMUNITY -->
@@ -973,8 +998,8 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
         </div>
         <div class="deal-grid">
           <div class="deal solid"><div class="dh"><h4>Seasonal campaign</h4><span class="tag teal">Per season</span></div><div class="price teal">From £3k<span class="per"> / season</span></div><p class="ddesc">Curated route collections with venue rewards, promoted seasonally to disperse visitors.</p><ul><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Route curation + venue activation</li><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Co-branded promotion</li><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Dispersal to under-visited villages</li></ul></div>
-          <div class="deal solid feature"><div class="dh"><h4>Annual partnership</h4><span class="tag lime">Year-round</span></div><div class="price lime">Let's talk</div><p class="ddesc">Year-round curated presence with quarterly reporting and dispersal objectives.</p><ul><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Quarterly reporting</li><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Measurable dispersal objectives</li><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Priority on new route collections</li></ul><a class="deal-cta" href="mailto:team@togro.co?subject=Annual%20partnership%20enquiry">Talk to us<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-          <div class="deal solid"><div class="dh"><h4>Land-intelligence data</h4><span class="tag teal">Roadmap</span></div><div class="price teal">Register interest</div><p class="ddesc">Anonymised path/land-condition dataset for rights-of-way, conservation and planning. LOIs only for now.</p><ul><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Aggregate &amp; anonymised</li><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>DPIA required before launch</li><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Post-Series A roadmap product</li></ul><a class="deal-cta" href="mailto:team@togro.co?subject=Land-intelligence%20data%20%E2%80%94%20register%20interest">Register interest<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          <div class="deal solid feature"><div class="dh"><h4>Annual partnership</h4><span class="tag lime">Year-round</span></div><div class="price lime">Let's talk</div><p class="ddesc">Year-round curated presence with quarterly reporting and dispersal objectives.</p><ul><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Quarterly reporting</li><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Measurable dispersal objectives</li><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Priority on new route collections</li></ul><a class="deal-cta" href="#partner-signup" data-partner="Council / tourism">Talk to us<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          <div class="deal solid"><div class="dh"><h4>Land-intelligence data</h4><span class="tag teal">Roadmap</span></div><div class="price teal">Register interest</div><p class="ddesc">Anonymised path/land-condition dataset for rights-of-way, conservation and planning. LOIs only for now.</p><ul><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Aggregate &amp; anonymised</li><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>DPIA required before launch</li><li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Post-Series A roadmap product</li></ul><a class="deal-cta" href="#partner-signup" data-partner="Council / tourism">Register interest<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
       </div>
       <!-- WALKERS -->
@@ -1019,6 +1044,42 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
           <button class="tarrow" id="teamPrev" aria-label="Previous"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
           <button class="tarrow" id="teamNext" aria-label="Next"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ PARTNER SIGN-UP ════════════════ -->
+<section class="psignup" id="partner-signup">
+  <div class="wrap">
+    <div class="psignup-card solid reveal">
+      <div class="pl">
+        <span class="eyebrow lime">Become a partner</span>
+        <h2>List your details. <em>We'll do the rest.</em></h2>
+        <p>Farm, venue, brand or council: tell us a little and the team will be in touch to onboard and contract you, ready for launch on 22 June.</p>
+        <ul>
+          <li><span class="pi"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Free to register your interest</li>
+          <li><span class="pi"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>We onboard and contract you directly</li>
+          <li><span class="pi"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Walkers stay anonymous; you get aggregate data only</li>
+        </ul>
+      </div>
+      <div class="pr">
+        <form class="pform" id="pForm" novalidate>
+          <select id="pType" required aria-label="What kind of partner are you">
+            <option value="" disabled selected>I'm a…</option>
+            <option>Farmer / landowner</option>
+            <option>Venue / business</option>
+            <option>Brand</option>
+            <option>Council / tourism</option>
+          </select>
+          <input type="text" id="pName" placeholder="Your name" required autocomplete="name">
+          <input type="text" id="pOrg" placeholder="Farm / venue / brand / organisation" autocomplete="organization">
+          <input type="email" id="pEmail" placeholder="you@email.com" required autocomplete="email">
+          <input type="tel" id="pPhone" placeholder="Phone (optional)" autocomplete="tel">
+          <textarea id="pNotes" placeholder="Anything we should know? (optional)"></textarea>
+          <button type="submit" class="btn btn-lime btn-lg">Register interest</button>
+        </form>
+        <div class="pform-success" id="pSuccess"><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Thanks, you're on the list. The Togro team will be in touch shortly to get you set up.</div>
       </div>
     </div>
   </div>
@@ -1211,6 +1272,31 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
       }
       form.style.display='none';
       var s=document.getElementById('wlSuccess');if(s)s.classList.add('on');
+    });
+
+    // partner CTAs: preset the partner type (the in-page link handles the scroll)
+    document.querySelectorAll('[data-partner]').forEach(function(el){
+      el.addEventListener('click',function(){
+        var sel=document.getElementById('pType');
+        if(sel)sel.value=el.getAttribute('data-partner');
+      });
+    });
+    var pf=document.getElementById('pForm');
+    if(pf)pf.addEventListener('submit',function(e){
+      e.preventDefault();
+      var type=document.getElementById('pType'),nm=document.getElementById('pName'),em=document.getElementById('pEmail');
+      function bad(el){el.focus();el.style.borderColor='var(--crit)';}
+      if(!type.value)return bad(type);
+      if(!nm.value.trim())return bad(nm);
+      if(!em.value||em.value.indexOf('@')<1)return bad(em);
+      if(WAITLIST_ENDPOINT.indexOf('http')===0){
+        var b=new URLSearchParams({form:'partner',type:type.value,name:nm.value.trim(),
+          org:(document.getElementById('pOrg').value||'').trim(),email:em.value.trim(),
+          phone:(document.getElementById('pPhone').value||'').trim(),notes:(document.getElementById('pNotes').value||'').trim(),source:'website'});
+        fetch(WAITLIST_ENDPOINT,{method:'POST',mode:'no-cors',body:b}).catch(function(){});
+      }
+      pf.style.display='none';
+      var ps=document.getElementById('pSuccess');if(ps)ps.classList.add('on');
     });
   })();
 })();
