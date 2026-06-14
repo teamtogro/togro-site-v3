@@ -5,7 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Togro · Real-time countryside intelligence</title>
 <meta name="description" content="The intelligence layer for the countryside. Live, verified, community-built reports of what's happening on the ground right now, mapped by the people who walk it.">
-<link rel="icon" type="image/png" href="images/logo-badge.png">
+<link rel="icon" type="image/png" sizes="any" href="images/logo-badge.png">
+<link rel="apple-touch-icon" href="images/logo-badge.png">
+<meta name="theme-color" content="#111827">
+<link rel="canonical" href="https://togro.co/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Togro · Real-time countryside intelligence">
+<meta property="og:description" content="Live, verified, community-built reports of what's happening in the countryside right now. Mapped by the people who walk it.">
+<meta property="og:url" content="https://togro.co/">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/teamtogro/togro-site-v3@main/images/logo-badge.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Togro · Real-time countryside intelligence">
+<meta name="twitter:description" content="Live, verified, community-built reports of what's happening in the countryside right now.">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/teamtogro/togro-site-v3@main/images/logo-badge.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
@@ -1083,6 +1095,17 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
   var mm=document.getElementById('mobileMenu');
   document.getElementById('burger').addEventListener('click',function(){mm.classList.toggle('open');});
   mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mm.classList.remove('open');});});
+  // in-page links: smooth-scroll WITHOUT leaving a #hash in the address bar
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var id=a.getAttribute('href').slice(1);
+      var t=id?document.getElementById(id):null;
+      var dest=(!t||id==='top')?0:(t.getBoundingClientRect().top+window.scrollY-64);
+      window.scrollTo({top:dest,behavior:'smooth'});
+      if(history.replaceState)history.replaceState(null,'',location.pathname+location.search);
+    });
+  });
   // duplicate ticker for seamless loop
   var tt=document.getElementById('tickerTrack');if(tt)tt.innerHTML+=tt.innerHTML;
   // community switcher
