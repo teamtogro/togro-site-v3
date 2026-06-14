@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Togro · links</title>
+<meta name="description" content="Togro — real-time countryside intelligence. Join the waitlist and read the land like a local.">
+<link rel="icon" type="image/png" href="images/logo-badge.png">
+<meta name="theme-color" content="#0c1f1c">
+<meta property="og:title" content="Togro · Real-time countryside intelligence">
+<meta property="og:description" content="Join the waitlist. Launching 22 June.">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/teamtogro/togro-site-v3@main/images/logo-badge.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lime:#C8D91A; --lime-hi:#D8EA32; --teal:#42E8D0; --ink-on-lime:#10140A; --succ:#4ADE80;
+  --line:rgba(255,255,255,.14); --r-pill:999px; --ease:cubic-bezier(.32,.72,.24,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased}
+body{font-family:'Space Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;color:#fff;min-height:100dvh;
+  /* forest-green dusk palette, matching the app login + website */
+  background:
+    radial-gradient(80% 48% at 82% 8%,rgba(66,232,208,.15),transparent 55%),
+    radial-gradient(72% 44% at 16% 98%,rgba(200,217,26,.13),transparent 60%),
+    linear-gradient(170deg,#111827 0%,#16291e 50%,#0b1f1c 100%);
+  background-attachment:fixed;
+  display:flex;justify-content:center;padding:44px 20px 56px}
+.mono{font-family:'JetBrains Mono',monospace;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+
+.hub{width:100%;max-width:460px;display:flex;flex-direction:column;align-items:center}
+
+/* header */
+.logo{width:92px;height:92px;display:grid;place-items:center;margin-bottom:6px}
+.logo img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 8px 30px rgba(200,217,26,.42))}
+.name{font-size:30px;font-weight:700;letter-spacing:-.02em;margin-top:8px}
+.bio{font-size:14.5px;color:rgba(255,255,255,.72);font-weight:500;text-align:center;line-height:1.5;margin-top:10px;max-width:340px}
+.count{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:7px 14px;border-radius:var(--r-pill);
+  font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:#fff;background:rgba(255,255,255,.07);border:1px solid var(--line);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.count .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 9px var(--lime);animation:blip 1.7s infinite}
+.count b{color:var(--lime)}
+@keyframes blip{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* waitlist form */
+.wl{width:100%;margin-top:26px;display:flex;flex-direction:column;gap:10px}
+.wl-lbl{font-size:12.5px;font-weight:600;color:rgba(255,255,255,.78);text-align:center;margin-bottom:2px}
+.wl input{width:100%;padding:15px 18px;border-radius:16px;font-family:inherit;font-size:15px;font-weight:500;color:#fff;
+  background:rgba(255,255,255,.08);border:1px solid var(--line);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:border-color .2s,box-shadow .2s}
+.wl input::placeholder{color:rgba(255,255,255,.5)}
+.wl input:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(200,217,26,.25)}
+.wl .go{width:100%;padding:16px;border-radius:16px;border:none;cursor:pointer;font-family:inherit;font-size:15.5px;font-weight:700;
+  background:var(--lime);color:var(--ink-on-lime);box-shadow:0 12px 28px -10px rgba(200,217,26,.5);transition:transform .15s var(--ease),background .2s}
+.wl .go:active{transform:scale(.98)}.wl .go:hover{background:var(--lime-hi)}
+.wl-ok{display:none;align-items:center;gap:11px;width:100%;margin-top:4px;padding:16px 18px;border-radius:16px;font-size:14.5px;font-weight:600;line-height:1.45;
+  background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.4)}
+.wl-ok.on{display:flex}
+.wl-ok .ic{width:26px;height:26px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--succ);color:#06210f}
+
+/* links */
+.links{width:100%;margin-top:22px;display:flex;flex-direction:column;gap:12px}
+.link{display:flex;align-items:center;gap:14px;width:100%;padding:16px 18px;border-radius:18px;font-size:15px;font-weight:600;
+  background:rgba(255,255,255,.07);border:1px solid var(--line);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  transition:transform .15s var(--ease),background .2s,border-color .2s}
+.link:hover{transform:translateY(-2px);background:rgba(255,255,255,.11);border-color:rgba(255,255,255,.24)}
+.link:active{transform:scale(.99)}
+.link .li{width:38px;height:38px;border-radius:11px;flex:none;display:grid;place-items:center;background:rgba(66,232,208,.15);color:var(--teal)}
+.link .lt{flex:1}.link .lt b{display:block;font-size:15px;font-weight:650;letter-spacing:-.01em}
+.link .lt span{font-size:11.5px;color:rgba(255,255,255,.55);font-weight:500}
+.link .chev{color:rgba(255,255,255,.4)}
+.link.primary{background:var(--lime);border-color:transparent;color:var(--ink-on-lime);box-shadow:0 12px 28px -10px rgba(200,217,26,.45)}
+.link.primary .li{background:rgba(16,20,10,.14);color:var(--ink-on-lime)}
+.link.primary .lt span{color:rgba(16,20,10,.6)}
+.link.primary .chev{color:rgba(16,20,10,.5)}
+.link.wa .li{background:rgba(74,222,128,.16);color:var(--succ)}
+
+/* socials + footer */
+.socials{display:flex;gap:14px;margin-top:26px}
+.socials a{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;
+  background:rgba(255,255,255,.08);border:1px solid var(--line);transition:transform .15s var(--ease),background .2s}
+.socials a:hover{transform:translateY(-2px);background:rgba(255,255,255,.14)}
+.foot{margin-top:26px;font-size:11.5px;color:rgba(255,255,255,.4);text-align:center;line-height:1.5;font-weight:500}
+.foot a{color:rgba(255,255,255,.6)}
+</style>
+</head>
+<body>
+<div class="hub">
+  <div class="logo"><img src="images/logo.png" alt="Togro"></div>
+  <div class="name">Togro</div>
+  <p class="bio">Real-time countryside intelligence. The map, mapped by the people who walk it.</p>
+  <div class="count"><span class="dot"></span><span>Launching in <b id="cd">8</b> days · 22 June</span></div>
+
+  <!-- waitlist sign-up -->
+  <form class="wl" id="wlForm" novalidate>
+    <div class="wl-lbl">Join the waitlist and we'll email your download link on launch day.</div>
+    <input type="email" id="wlEmail" placeholder="you@email.com" required autocomplete="email" aria-label="Email address">
+    <button type="submit" class="go" id="wlGo">Join the waitlist</button>
+  </form>
+  <div class="wl-ok" id="wlOk"><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>You're on the list. We'll email you on launch day, 22 June.</div>
+
+  <!-- links -->
+  <div class="links">
+    <a class="link" id="appLink" href="#">
+      <span class="li"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg></span>
+      <span class="lt"><b id="appTitle">Get the app</b><span id="appSub">Launching 22 June · join the list above</span></span>
+      <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="link" href="https://togro.co">
+      <span class="li"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span>
+      <span class="lt"><b>Visit togro.co</b><span>See how it works</span></span>
+      <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="link" href="https://togro.co/#partner-signup">
+      <span class="li"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></span>
+      <span class="lt"><b>Partner with us</b><span>Venue · farm · brand · council</span></span>
+      <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="link wa" href="https://wa.me/447348955621">
+      <span class="li"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20Zm4.4-5.6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.9.7 1.9.5 2.3.5a2.5 2.5 0 0 0 1.7-1.2 2 2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3Z"/></svg></span>
+      <span class="lt"><b>WhatsApp us</b><span>+44 7348 955621</span></span>
+      <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="link" href="mailto:team@togro.co">
+      <span class="li"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m3 6 9 6 9-6"/></svg></span>
+      <span class="lt"><b>Email the team</b><span>team@togro.co</span></span>
+      <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+
+  <div class="socials">
+    <a href="https://instagram.com/togro" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
+    <a href="https://wa.me/447348955621" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20Zm4.4-5.6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.9.7 1.9.5 2.3.5a2.5 2.5 0 0 0 1.7-1.2 2 2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3Z"/></svg></a>
+    <a href="mailto:team@togro.co" aria-label="Email"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m3 6 9 6 9-6"/></svg></a>
+  </div>
+
+  <div class="foot">Real-time countryside intelligence.<br>Walkers stay anonymous, always. · <a href="https://togro.co">togro.co</a></div>
+</div>
+
+<script>
+(function(){
+  // Apps Script waitlist endpoint (same as the website)
+  var WAITLIST_ENDPOINT='https://script.google.com/macros/s/AKfycbxsXy_34qnFB7d5SxJI4QOV-xluO4C6ZUSyKCHbIU2tC8IiAO9HxOiUSoHjziWhBP4/exec';
+  // countdown to 22 June 2026; flip to "Get the app" once live
+  var launch=new Date(2026,5,22,0,0,0), now=new Date();
+  var days=Math.ceil((launch.getTime()-now.getTime())/86400000), launched=days<=0;
+  var cd=document.getElementById('cd');if(cd)cd.textContent=days;
+  if(launched){
+    var c=document.querySelector('.count');if(c)c.innerHTML='<span class="dot"></span>Available now';
+    var f=document.getElementById('wlForm');if(f)f.style.display='none';
+    var al=document.getElementById('appLink');if(al){al.classList.add('primary');
+      document.getElementById('appTitle').textContent='Get the app';
+      document.getElementById('appSub').textContent='Free on iOS & Android';}
+  }
+  var form=document.getElementById('wlForm');
+  if(form)form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var em=document.getElementById('wlEmail');
+    if(!em.value||em.value.indexOf('@')<1){em.focus();em.style.borderColor='#FF5A6E';return;}
+    if(WAITLIST_ENDPOINT.indexOf('http')===0){
+      var b=new URLSearchParams({name:'',email:em.value.trim(),type:'',source:'linktree'});
+      fetch(WAITLIST_ENDPOINT,{method:'POST',mode:'no-cors',body:b}).catch(function(){});
+    }
+    form.style.display='none';
+    var ok=document.getElementById('wlOk');if(ok)ok.classList.add('on');
+  });
+})();
+</script>
+</body>
+</html>
