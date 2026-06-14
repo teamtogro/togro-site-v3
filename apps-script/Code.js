@@ -71,31 +71,31 @@ function seedEmails_(sh) {
   var D = function (m, d) { return new Date(2026, m, d); };
   var rows = [
     ['TRUE', 'welcome', "You're on the Togro waitlist 🌿",
-      "Hi {{first_name}},\n\nYou're on the list — thanks for joining Togro before we launch.\n\nTogro is the intelligence layer for the countryside: live, verified, community-built reports of what's actually happening on the ground. Not a hiking app. Not a walking tracker.\n\nWe go live on {{launch}}. Over the next few days we'll show you exactly what that means — and on launch day your download link lands right here.\n\nSee you on the trail,\nThe Togro team", '', ''],
+      "Hi {{first_name}},\n\nYou're on the list. Thanks for joining Togro before we launch.\n\nTogro is the intelligence layer for the countryside: live, verified, community-built reports of what's actually happening on the ground. Not a hiking app. Not a walking tracker.\n\nWe go live on {{launch}}. Over the next few days we'll show you exactly what that means, and on launch day your download link lands right here.\n\nSee you on the trail,\nThe Togro team", '', ''],
 
     ['TRUE', D(5, 15), "Togro isn't a hiking app ({{days}} days to go)",
       "Hi {{first_name}},\n\nMost outdoor apps tell you how far you walked. Togro tells you what's ahead.\n\nLivestock in the next field. A flooded path. A fallen tree. A closed gate. Reported by the people who just walked it, and verified before you set off.\n\n{{days}} days until launch.", '', ''],
 
     ['TRUE', D(5, 16), "Know before you go ({{days}} days to go)",
-      "Hi {{first_name}},\n\nEvery report on Togro shows its confidence — type, distance, age, and how many walkers have confirmed it. A hazard you can't trust is just noise.\n\nThat's the difference between a map and an intelligence network.\n\n{{days}} days to go.", '', ''],
+      "Hi {{first_name}},\n\nEvery report on Togro shows its confidence: type, distance, age, and how many walkers have confirmed it. A hazard you can't trust is just noise.\n\nThat's the difference between a map and an intelligence network.\n\n{{days}} days to go.", '', ''],
 
     ['TRUE', D(5, 17), "Earn as you walk ({{days}} days to go)",
-      "Hi {{first_name}},\n\nSpot something, report it, earn credits — then spend them at rural pubs, cafes and farm shops along the way. The more your report is verified, the more it's worth.\n\nIt's a contribution economy, not a step counter.\n\n{{days}} days to go.", '', ''],
+      "Hi {{first_name}},\n\nSpot something, report it, earn credits, then spend them at rural pubs, cafes and farm shops along the way. The more your report is verified, the more it's worth.\n\nIt's a contribution economy, not a step counter.\n\n{{days}} days to go.", '', ''],
 
     ['TRUE', D(5, 18), "One map, four communities ({{days}} days to go)",
       "Hi {{first_name}},\n\nTogro connects walkers, farmers, rural venues and councils on one map. Walkers get safety and rewards; farmers reduce friction at the gate; venues get verified footfall; councils get path intelligence.\n\nOne trusted network.\n\n{{days}} days to go.", '', ''],
 
     ['TRUE', D(5, 19), "Mapped by the people who work the land ({{days}} days to go)",
-      "Hi {{first_name}},\n\nFarmers post live land updates — a bull in the west field, a repaired gate — so walkers arrive informed. Fewer gates left open, fewer surprises, safer routes.\n\nThe countryside, mapped by the people who know it.\n\n{{days}} days to go.", '', ''],
+      "Hi {{first_name}},\n\nFarmers post live land updates, like a bull in the west field or a repaired gate, so walkers arrive informed. Fewer gates left open, fewer surprises, safer routes.\n\nThe countryside, mapped by the people who know it.\n\n{{days}} days to go.", '', ''],
 
     ['TRUE', D(5, 20), "Climb the trust ladder ({{days}} days to go)",
-      "Hi {{first_name}},\n\nThe more you contribute, the higher you climb: Scout, Pathfinder, Ranger, Guardian, Sentinel, Pioneer. From explorer to protector of the routes you love.\n\nAlmost there — {{days}} days to go.", '', ''],
+      "Hi {{first_name}},\n\nThe more you contribute, the higher you climb: Scout, Pathfinder, Ranger, Guardian, Sentinel, Pioneer. From explorer to protector of the routes you love.\n\nAlmost there. {{days}} days to go.", '', ''],
 
     ['TRUE', D(5, 21), "Tomorrow.",
-      "Hi {{first_name}},\n\nTomorrow, Togro goes live.\n\nYou were here before launch — so you'll be among the first to read the land like a local. Keep an eye on your inbox in the morning.\n\nSee you out there,\nThe Togro team", '', ''],
+      "Hi {{first_name}},\n\nTomorrow, Togro goes live.\n\nYou were here before launch, so you'll be among the first to read the land like a local. Keep an eye on your inbox in the morning.\n\nSee you out there,\nThe Togro team", '', ''],
 
-    ['TRUE', D(5, 22), "Togro is live — read the land like a local",
-      "Hi {{first_name}},\n\nIt's here. Togro is live.\n\nLive countryside intelligence, verified routes, rewards as you walk — all in your pocket. Thank you for being one of the first.\n\nTap below to get the app.\n\nThe Togro team", 'Get the app', 'https://togro.co']
+    ['TRUE', D(5, 22), "Togro is live: read the land like a local",
+      "Hi {{first_name}},\n\nIt's here. Togro is live.\n\nLive countryside intelligence, verified routes, rewards as you walk, all in your pocket. Thank you for being one of the first.\n\nTap below to get the app.\n\nThe Togro team", 'Get the app', 'https://togro.co']
   ];
   sh.getRange(2, 1, rows.length, rows[0].length).setValues(rows);
   sh.getRange(2, 2, rows.length, 1).setNumberFormat('ddd d mmm');  // When column
@@ -123,6 +123,14 @@ function installTrigger_() {
 
 function doGet() {
   return ContentService.createTextOutput('Togro waitlist is live.');
+}
+
+/** Wipes the campaign rows and re-writes the latest seed content. Run from the editor. */
+function reseedEmails() {
+  var sh = emailsSheet_();
+  var last = sh.getLastRow();
+  if (last > 1) sh.getRange(2, 1, last - 1, EMAILS_HEAD.length).clearContent();
+  seedEmails_(sh);
 }
 
 function doPost(e) {
