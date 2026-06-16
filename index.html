@@ -946,15 +946,15 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
     <p class="section-sub reveal">Tell us who you are and you'll only see the pricing that applies to you, nothing irrelevant. Real, attributable visits, not impressions.</p>
     <span class="pcat-lbl reveal">Show pricing for</span>
     <div class="pcat-tabs reveal">
-      <button class="pcat" data-cat="walkers">Walkers</button>
-      <button class="pcat on" data-cat="venues">Venues</button>
+      <button class="pcat on" data-cat="walkers">Walkers</button>
+      <button class="pcat" data-cat="venues">Venues</button>
       <button class="pcat" data-cat="brands">Brands</button>
       <button class="pcat" data-cat="community">Community</button>
       <button class="pcat" data-cat="tourism">Tourism &amp; councils</button>
     </div>
     <div class="pcat-body">
       <!-- VENUES -->
-      <div class="pcat-panel on" data-cp="venues">
+      <div class="pcat-panel" data-cp="venues">
         <div class="cat-intro">
           <div><h3>Pubs, cafés &amp; <em>farm shops</em></h3><p>A flat per-redemption fee, never a cut of the bill, set automatically per venue. Add Pro analytics across your estate.</p></div>
           <span class="note-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>Card collected only after first verified redemption</span>
@@ -1002,7 +1002,7 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
         </div>
       </div>
       <!-- WALKERS -->
-      <div class="pcat-panel" data-cp="walkers">
+      <div class="pcat-panel on" data-cp="walkers">
         <div class="cat-intro">
           <div><h3>Free to walk. <em>Togro+ to earn faster.</em></h3><p>The core app is free. Togro+ multiplies your credits and puts you first in line for brand campaigns and early access.</p></div>
           <span class="note-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>You're always anonymous to venues and partners</span>
@@ -1216,7 +1216,14 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
     pv&&pv.addEventListener('click',function(){show(ti-1);auto();});
     if(deck){deck.addEventListener('mouseenter',function(){clearInterval(timer);});
       deck.addEventListener('mouseleave',auto);}
-    auto();
+    // Always start on Georgina and only play while the team section is in view,
+    // so the founder is first whenever someone reaches About (not 5s after load).
+    if('IntersectionObserver' in window && deck){
+      var io=new IntersectionObserver(function(es){es.forEach(function(en){
+        if(en.isIntersecting){show(0);auto();}else{clearInterval(timer);}
+      });},{threshold:0.35});
+      io.observe(deck);
+    } else { show(0); auto(); }
   })();
   // partner tabs
   function setCat(k,scroll){
@@ -1227,6 +1234,8 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
   }
   document.querySelectorAll('.pcat').forEach(function(t){t.addEventListener('click',function(){setCat(t.getAttribute('data-cat'),false);});});
   document.querySelectorAll('.aud-chip').forEach(function(c){c.addEventListener('click',function(){setCat(c.getAttribute('data-aud'),true);});});
+  // Default the pricing chooser to Walkers so visitors see "Free" first.
+  setCat('walkers',false);
   // ── partner-form preselect: any [data-partner] link pre-fills the enquiry type ──
   function preselectPartner(v){
     var sel=document.getElementById('pType'); if(!sel||!v) return;
