@@ -644,6 +644,15 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
   .why li{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.55;color:var(--text-2)}
   .why li svg{width:20px;height:20px;flex:none;color:#5b6112;margin-top:1px}
   .why li b{color:var(--text-1);font-weight:650}
+  .team-photos{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:36px}
+  @media(max-width:900px){.team-photos{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.team-photos{grid-template-columns:1fr}}
+  .tmem .ph{aspect-ratio:1/1;border-radius:16px;overflow:hidden;margin-bottom:14px;background:color-mix(in srgb,var(--teal) 12%,transparent)}
+  .tmem .ph img{width:100%;height:100%;object-fit:cover;display:block}
+  .tmem .ph.ini{display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:34px;color:#5b6112;background:color-mix(in srgb,var(--lime) 16%,transparent)}
+  .tmem h3{font-size:16px;margin:0 0 3px;letter-spacing:-.01em;color:var(--text-1)}
+  .tmem .role{display:block;font-size:12.5px;font-weight:600;color:var(--teal-ink,#0B7E74);margin-bottom:8px}
+  .tmem p{font-size:13px;line-height:1.5;color:var(--text-2);margin:0}
   .grow2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
   @media(max-width:680px){.grow2{grid-template-columns:1fr}}
   .gcard{border-radius:16px;padding:22px}
