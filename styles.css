@@ -497,6 +497,10 @@ footer{padding:54px 0 40px;border-top:1px solid var(--line);margin-top:24px}
 .foot-bottom{margin-top:42px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;
   align-items:center;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--text-3);font-weight:500}
 .foot-bottom .mono{color:var(--text-2)}
+.foot-social{display:flex;gap:10px;margin-top:18px}
+.foot-social a{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#cbd5e1;transition:background .2s,color .2s,border-color .2s}
+.foot-social a:hover{background:var(--lime);color:#10140A;border-color:var(--lime)}
+.foot-social svg{width:18px;height:18px;fill:currentColor}
 
 /* ════════════════ PARTNER SIGN-UP ════════════════ */
 .psignup{padding:24px 0 6px}
