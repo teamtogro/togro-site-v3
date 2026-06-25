@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get Togro</title>
+<meta name="description" content="Download Togro — real-time countryside intelligence.">
+<meta name="theme-color" content="#111827">
+<link rel="icon" type="image/png" href="/images/logo-badge.png">
+<link rel="apple-touch-icon" href="/images/logo-badge.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+/* ── Store links — single source of truth ─────────────────────────
+   When the Android app goes live, paste the Play Store URL into
+   PLAY_URL below. Every printed QR sticker starts working instantly,
+   no reprint needed.                                                */
+var APPLE_URL = "https://apps.apple.com/app/togro/id6760396847";
+var PLAY_URL  = "";              // ← e.g. "https://play.google.com/store/apps/details?id=co.togro.app"
+var WEB_URL   = "https://togro.co/";
+
+(function () {
+  var ua = navigator.userAgent || navigator.vendor || "";
+  var isIOS     = /iphone|ipad|ipod/i.test(ua) ||
+                  (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1); // iPadOS
+  var isAndroid = /android/i.test(ua);
+
+  if (isIOS) {                       // iPhone / iPad → App Store, instantly
+    location.replace(APPLE_URL);
+  } else if (isAndroid && PLAY_URL) {// Android with app live → Play Store, instantly
+    location.replace(PLAY_URL);
+  }
+  // Android (not live yet) and desktop fall through to the page below.
+  document.documentElement.dataset.android = isAndroid ? "1" : "0";
+})();
+</script>
+<style>
+  :root{
+    --lime:#C8D91A; --lime-hi:#D8EA32; --teal:#42E8D0;
+    --navy:#111827; --navy-2:#182235; --card:#1E293B; --line:rgba(255,255,255,.12);
+    --text-1:#FFFFFF; --text-2:#B9C3D4; --text-3:#7F8BA1; --ink-on-lime:#10140A;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:"Space Grotesk",system-ui,sans-serif;
+    background:radial-gradient(120% 90% at 50% -10%, #182235 0%, #111827 60%);
+    color:var(--text-1);
+    min-height:100%;display:grid;place-items:center;padding:28px;
+    -webkit-font-smoothing:antialiased;text-align:center;
+  }
+  .card{
+    width:100%;max-width:420px;background:rgba(30,41,59,.5);
+    border:1px solid var(--line);border-radius:30px;
+    padding:40px 30px;backdrop-filter:blur(14px);
+    box-shadow:0 30px 70px -34px rgba(0,0,0,.7);
+  }
+  .mark{width:74px;height:74px;border-radius:20px;margin:0 auto 22px;display:block}
+  h1{font-size:26px;font-weight:700;letter-spacing:-.02em;margin-bottom:10px}
+  .accent{display:block;width:46px;height:4px;border-radius:9px;background:var(--lime);margin:14px auto 18px}
+  p{color:var(--text-2);font-size:16px;line-height:1.5;margin-bottom:8px}
+  .sub{color:var(--text-3);font-size:14px;margin-bottom:26px}
+  .btn{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    width:100%;padding:16px 20px;border-radius:999px;font-size:16px;font-weight:600;
+    text-decoration:none;border:1px solid transparent;margin-bottom:12px;transition:transform .15s ease,opacity .15s ease;
+  }
+  .btn:active{transform:scale(.98)}
+  .btn-lime{background:var(--lime);color:var(--ink-on-lime)}
+  .btn-ghost{background:transparent;border-color:var(--line);color:var(--text-1)}
+  .badge{
+    display:inline-block;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--teal);background:rgba(66,232,208,.1);border:1px solid rgba(66,232,208,.3);
+    padding:6px 14px;border-radius:999px;margin-bottom:18px;
+  }
+  .foot{margin-top:22px;font-size:13px;color:var(--text-3)}
+  .foot a{color:var(--text-2)}
+  /* show iOS-style fallback by default; swap to Android message when detected */
+  .android-only{display:none}
+  html[data-android="1"] .default-only{display:none}
+  html[data-android="1"] .android-only{display:block}
+</style>
+</head>
+<body>
+  <main class="card">
+    <img class="mark" src="/images/logo-badge.png" alt="Togro">
+
+    <!-- Android (app not live yet) -->
+    <div class="android-only">
+      <span class="badge">Android · Coming soon</span>
+      <h1>Togro is on the way to Android</h1>
+      <span class="accent"></span>
+      <p>We're putting the finishing touches on the Android app.</p>
+      <p class="sub">Join the list and we'll tell you the moment it lands.</p>
+      <a class="btn btn-lime" href="https://togro.co/#waitlist">Join the waitlist</a>
+      <a class="btn btn-ghost" href="https://togro.co/">Explore Togro</a>
+    </div>
+
+    <!-- Desktop / other (iPhone users are redirected before this shows) -->
+    <div class="default-only">
+      <h1>Get Togro</h1>
+      <span class="accent"></span>
+      <p>Real-time countryside intelligence, mapped by the people who walk it.</p>
+      <p class="sub">Open this link on your phone, or grab the app below.</p>
+      <a class="btn btn-lime" href="https://apps.apple.com/app/togro/id6760396847">Download on the App Store</a>
+      <a class="btn btn-ghost" href="https://togro.co/">Visit togro.co</a>
+    </div>
+
+    <p class="foot"><a href="https://togro.co/">togro.co</a></p>
+  </main>
+</body>
+</html>
